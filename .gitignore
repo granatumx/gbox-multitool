@@ -8,3 +8,5 @@ notes_dynamic_ui_20180302.R
 test_de_dyn.out
 test_de.out
 warning-pesudo-time_and_norm_may_need_fix_for_io_formatting.txt
+
+*.DS_store
