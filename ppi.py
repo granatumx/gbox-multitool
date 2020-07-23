@@ -57,7 +57,8 @@ def main():
     # parsed_args, unparsed = parser.parse_known_args()
     parsed_args = parser.parse_args()
     gene_pairs = pd.read_table(
-        parsed_args.ppi_table
+        parsed_args.ppi_table, 
+        low_memory=False
         # compression='bz2',
         # header=1
     )
