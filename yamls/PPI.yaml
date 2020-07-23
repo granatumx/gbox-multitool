@@ -20,7 +20,7 @@ meta:
     compiled by BioGRID.
 endpoints:
   backend:
-    cmd: python3 ./ppi.py --top_scoring_genes=100 --ppi_table ./ppi_tables/BIOGRID-ALL-3.5.187.tab3.txt
+    cmd: python3 ./ppi.py --top_scoring_genes=100 --ppi_table ./ppi_tables/BIOGRID-ALL-3.5.187.tab3.txt.bz2
     type: docker
     image: {GBOX}
 frontend:
