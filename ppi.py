@@ -17,6 +17,7 @@ import igraph as ig
 # Local application/library specific imports
 import granatum_sdk as gsdk
 import matplotlib as mpl
+import matplotlib.pyplot as plt
 import cairo
 #from igraph import *
 
@@ -182,10 +183,17 @@ def main():
       valign=ig.drawing.text.TextDrawer.TOP,
       halign=ig.drawing.text.TextDrawer.CENTER)
     drawer.draw_at(900, 205, width=20)
-    plot.save()
 
-    #gn.add_current_figure_to_results("PPI-plot")
-    gn.add_result(data=plot, data_type='png')
+    # Create the figure
+    fig = plt.figure()
+
+    # Create a basic plot
+    axes = fig.add_subplot(111)
+    axes.artists.append(g_subgraph_degree_gt_0)
+
+    #plot.save()
+
+    gn.add_current_figure_to_results("PPI-plot")
     gn.commit()    
 
 # Main body
