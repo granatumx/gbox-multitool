@@ -189,7 +189,7 @@ def main():
 
     # Create a basic plot
     axes = fig.add_subplot(111)
-    axes.artists.append(g_subgraph_degree_gt_0)
+    axes.artists.append(plot)
 
     #plot.save()
 
