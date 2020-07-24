@@ -19,10 +19,50 @@ import granatum_sdk as gsdk
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import cairo
+from matplotlib.artist import Artist
+from matplotlib.backends.backend_cairo import RendererCairo
 
 # Global variables
 
 # Class declarations
+
+class GraphArtist(Artist):
+    """Matplotlib artist class that draws igraph graphs.
+
+    Only Cairo-based backends are supported.
+    """
+
+    def __init__(self, graph, bbox, palette=None, *args, **kwds):
+        """Constructs a graph artist that draws the given graph within
+        the given bounding box.
+
+        `graph` must be an instance of `igraph.Graph`.
+        `bbox` must either be an instance of `igraph.drawing.BoundingBox`
+        or a 4-tuple (`left`, `top`, `width`, `height`). The tuple
+        will be passed on to the constructor of `BoundingBox`.
+        `palette` is an igraph palette that is used to transform
+        numeric color IDs to RGB values. If `None`, a default grayscale
+        palette is used from igraph.
+
+        All the remaining positional and keyword arguments are passed
+        on intact to `igraph.Graph.__plot__`.
+        """
+        Artist.__init__(self)
+
+        if not isinstance(graph, ig.Graph):
+            raise TypeError, "expected igraph.Graph, got %r" % type(graph)
+
+        self.graph = graph
+        self.palette = palette or ig.palettes["gray"]
+        self.bbox = ig.BoundingBox(bbox)
+        self.args = args
+        self.kwds = kwds
+
+    def draw(self, renderer):
+        if not isinstance(renderer, RendererCairo):
+            raise TypeError("graph plotting is supported only on Cairo backends")
+        self.graph.__plot__(renderer.ctx, self.bbox, self.palette)
+
 
 # Function declarations
 def get_igraph_ppi():
@@ -183,14 +223,18 @@ def main():
       halign=ig.drawing.text.TextDrawer.CENTER)
     drawer.draw_at(900, 205, width=20)
 
+    
+    mpl.use("cairo")
     # Create the figure
-    #fig = plt.figure()
+    fig = plt.figure()
 
     # Create a basic plot
-    #axes = fig.add_subplot(111)
-    #axes.artists.append(plot)
+    axes = fig.add_subplot(111)
+    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 150, 150), layout="kk")
+    graph_artist.set_zorder(float('inf'))
+    axes.artists.append(graph_artist)
 
-    plot.show()
+    #plot.show()
 
     gn.add_current_figure_to_results("PPI-plot")
     gn.commit()    
