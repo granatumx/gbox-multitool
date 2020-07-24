@@ -20,7 +20,6 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.artist import Artist
 import cairo
-#from igraph import *
 
 # Global variables
 
@@ -48,12 +47,12 @@ class GraphArtist(Artist):
         """
         Artist.__init__(self)
 
-        if not isinstance(graph, Graph):
+        if not isinstance(graph, ig.Graph):
             raise TypeError("expected igraph.Graph, got %r" % type(graph))
 
         self.graph = graph
-        self.palette = palette or palettes["gray"]
-        self.bbox = BoundingBox(bbox)
+        self.palette = palette or ig.palettes["gray"]
+        self.bbox = ig.BoundingBox(bbox)
         self.args = args
         self.kwds = kwds
 
@@ -228,7 +227,7 @@ def main():
     # Create a basic plot
     axes = fig.add_subplot(111)
     axes.artists.append(plot)
-    
+
     graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000), layout="kk")
     graph_artist.set_zorder(float('inf'))
 
