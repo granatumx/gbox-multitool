@@ -184,7 +184,8 @@ def main():
     drawer.draw_at(900, 205, width=20)
     plot.save()
 
-    gn.add_current_figure_to_results("PPI-plot")
+    #gn.add_current_figure_to_results("PPI-plot")
+    gn.add_result(data=plot, data_type='png')
     gn.commit()    
 
 # Main body
