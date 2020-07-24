@@ -61,7 +61,7 @@ class GraphArtist(Artist):
     def draw(self, renderer):
         if not isinstance(renderer, RendererCairo):
             raise TypeError("graph plotting is supported only on Cairo backends")
-        self.graph.__plot__(renderer.ctx, self.bbox, self.palette)
+        self.graph.__plot__(renderer.gc.ctx, self.bbox, self.palette)
 
 
 # Function declarations
