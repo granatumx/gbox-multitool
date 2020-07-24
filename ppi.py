@@ -50,7 +50,7 @@ class GraphArtist(Artist):
         Artist.__init__(self)
 
         if not isinstance(graph, ig.Graph):
-            raise TypeError, "expected igraph.Graph, got %r" % type(graph)
+            raise TypeError("expected igraph.Graph, got %r" % type(graph))
 
         self.graph = graph
         self.palette = palette or ig.palettes["gray"]
