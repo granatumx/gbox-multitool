@@ -235,7 +235,7 @@ def main():
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
 
-    fig = mpl_to_plotly(fig)
+    plotly_fig = mpl_to_plotly(fig)
 
     #plot.show()
 
