@@ -102,6 +102,27 @@ class Granatum:
       **kwargs,
     })
 
+  def add_interactive(self, description=None, zoom=2, width=750, height=650, dpi=100):
+    save_filepath = path.join('/tmp', random_string() + '.svg')
+
+    fig = plt.gcf()
+    fig.set_figheight(height / dpi)
+    fig.set_figwidth(width / dpi)
+    fig.savefig(save_filepath, dpi=zoom * dpi, format='.svg')
+
+    with open(save_filepath, 'rb') as f:
+      image_b64 = b64encode(f.read()).decode('utf-8')
+
+    self.results.append(
+      {
+        'type': 'svg',
+        'width': width,
+        'height': height,
+        'description': description,
+        'data': image_b64,
+      }
+    )
+
   #-- commit  -------------------------------------------------
 
   def commit(self):

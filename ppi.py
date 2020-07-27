@@ -240,10 +240,10 @@ def main():
     #plot.show()
 
     #gn.add_current_figure_to_results("PPI-plot")
-    with open("interactive.json", 'w') as f:
-        mpld3.save_json(fig, f)
+    #with open("interactive.json", 'w') as f:
+    #    mpld3.save_json(fig, f)
     
-    gn.add_result(f)
+    gn.add_interactive(description="PPI-plot")
     gn.commit()
 
 # Main body
