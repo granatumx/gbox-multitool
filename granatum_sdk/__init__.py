@@ -108,7 +108,7 @@ class Granatum:
     fig = plt.gcf()
     fig.set_figheight(height / dpi)
     fig.set_figwidth(width / dpi)
-    fig.savefig(save_filepath, dpi=zoom * dpi, format='.svg')
+    fig.savefig(save_filepath, dpi=zoom * dpi, format='svg')
 
     with open(save_filepath, 'rb') as f:
       image_b64 = b64encode(f.read()).decode('utf-8')
