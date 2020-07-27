@@ -236,17 +236,15 @@ def main():
     axes.artists.append(graph_artist)
 
     #plotly_fig = mpl_to_plotly(fig)
-    html_str = mpld3.fig_to_html(fig)
 
     #plot.show()
 
     #gn.add_current_figure_to_results("PPI-plot")
-    html_file = open("interactive_fig.html","w")
-    html_file.write(html_str)
-    html_file.close()
-
-    gn.add_result(html_file, data_type='html')
-    gn.commit()    
+    with open("interactive.json", 'w') as f:
+        mpld3.save_json(f)
+    
+    gn.add_result(f)
+    gn.commit()
 
 # Main body
 if __name__ == '__main__':
