@@ -236,15 +236,17 @@ def main():
     axes.artists.append(graph_artist)
 
     #plotly_fig = mpl_to_plotly(fig)
-    interactive_fig = mpld3.fig_to_html(fig)
+    html_str = mpld3.fig_to_html(fig)
 
     #plot.show()
 
     #gn.add_current_figure_to_results("PPI-plot")
-    gn.add_result(interactive_fig, data_type='html')
-    gn.commit()    
+    html_file = open("interactive_fig.html","w")
+    html_file.write(html_str)
+    html_file.close()
 
-    mpld3.show(fig)
+    gn.add_result(html_file, data_type='html')
+    gn.commit()    
 
 # Main body
 if __name__ == '__main__':
