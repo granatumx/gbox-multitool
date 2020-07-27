@@ -244,6 +244,8 @@ def main():
     gn.add_result(interactive_fig, data_type='html')
     gn.commit()    
 
+    mpld3.show(fig)
+
 # Main body
 if __name__ == '__main__':
     main()
