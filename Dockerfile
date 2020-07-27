@@ -140,6 +140,7 @@ RUN apt-get install -y python3-igraph python3-pip python3-dev libcairo2-dev
 RUN pip3 install --upgrade pip setuptools wheel pandas
 RUN pip3 install pycairo
 RUN pip3 install scanpy
+RUN pip3 install plotly
 RUN apt-get install -y python3-tk
 
 RUN R -e 'install.packages(c("flexmix", "RcppArmadillo", "Rook", "rjson"))'
