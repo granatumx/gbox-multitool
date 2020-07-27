@@ -21,6 +21,7 @@ import matplotlib.pyplot as plt
 import cairo
 from matplotlib.artist import Artist
 from matplotlib.backends.backend_cairo import RendererCairo
+from plotly.tools import mpl_to_plotly
 
 # Global variables
 
@@ -233,6 +234,8 @@ def main():
     graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 150, 150), layout="kk")
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
+
+    fig = mpl_to_plotly(fig)
 
     #plot.show()
 
