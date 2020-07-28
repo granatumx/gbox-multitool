@@ -21,7 +21,6 @@ import matplotlib.pyplot as plt, mpld3
 import cairo
 from matplotlib.artist import Artist
 from matplotlib.backends.backend_cairo import RendererCairo
-from plotly.tools import mpl_to_plotly
 
 # Global variables
 
@@ -235,15 +234,9 @@ def main():
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
 
-    #plotly_fig = mpl_to_plotly(fig)
-
     #plot.show()
-
-    #gn.add_current_figure_to_results("PPI-plot")
-    #with open("interactive.json", 'w') as f:
-    #    mpld3.save_json(fig, f)
     
-    gn.add_interactive(description="PPI-plot")
+    gn.add_current_figure_to_results(description="PPI-plot")
     gn.commit()
 
 # Main body
