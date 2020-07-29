@@ -236,7 +236,7 @@ def main():
 
     #plot.show()
     
-    gn.add_current_figure_to_results(description="PPI-plot", zoom=4, width=1000, height=1000, dpi=100)
+    gn.add_current_figure_to_results(description="PPI-plot", zoom=2, width=500, height=500, dpi=100)
     gn.commit()
 
 # Main body
