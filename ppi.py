@@ -17,7 +17,7 @@ import igraph as ig
 # Local application/library specific imports
 import granatum_sdk as gsdk
 import matplotlib as mpl
-import matplotlib.pyplot as plt, mpld3
+import matplotlib.pyplot as plt
 import cairo
 from matplotlib.artist import Artist
 from matplotlib.backends.backend_cairo import RendererCairo
@@ -230,13 +230,13 @@ def main():
 
     # Create a basic plot
     axes = fig.add_subplot(111)
-    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 150, 150), layout="kk")
+    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 400, 400), layout="kk")
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
 
     #plot.show()
     
-    gn.add_current_figure_to_results(description="PPI-plot")
+    gn.add_current_figure_to_results(description="PPI-plot", zoom=4, width=1000, height=1000, dpi=100)
     gn.commit()
 
 # Main body
