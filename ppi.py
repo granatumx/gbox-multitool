@@ -230,14 +230,14 @@ def main():
 
     # Create a basic plot
     axes = fig.add_subplot(111)
-    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (500, 500, 400, 400), layout="kk")
+    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 150, 150), layout="kk")
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
     axes.axis('off')
 
     #plot.show()
     
-    gn.add_current_figure_to_results(description="PPI-plot", zoom=2, width=500, height=500, dpi=100)
+    gn.add_current_figure_to_results(description="PPI-plot")
     gn.commit()
 
 # Main body
