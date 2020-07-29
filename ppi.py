@@ -230,9 +230,10 @@ def main():
 
     # Create a basic plot
     axes = fig.add_subplot(111)
-    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1500, 2000, 500, 500), layout="kk")
+    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (500, 500, 400, 400), layout="kk")
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
+    axes.axis('off')
 
     #plot.show()
     
