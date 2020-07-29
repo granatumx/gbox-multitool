@@ -53,7 +53,7 @@ class GraphArtist(Artist):
             raise TypeError("expected igraph.Graph, got %r" % type(graph))
 
         self.graph = graph
-        self.palette = palette or ig.palettes["gray"]
+        self.palette = palette or ig.palettes["red-green"]
         self.bbox = ig.BoundingBox(bbox)
         self.args = args
         self.kwds = kwds
@@ -230,7 +230,7 @@ def main():
 
     # Create a basic plot
     axes = fig.add_subplot(111)
-    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 400, 400), layout="kk")
+    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1500, 2000, 500, 500), layout="kk")
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
 
