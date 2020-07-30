@@ -238,7 +238,7 @@ def main():
     #plot.show()
     
     #gn.add_current_figure_to_results(description="PPI-plot")
-    gn.export(data=plot, extract_from="PPI-plot")
+    gn.export_statically_raw(data=plot, extract_from="PPI-plot")
     gn.commit()
 
 # Main body
