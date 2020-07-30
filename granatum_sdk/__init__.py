@@ -60,16 +60,7 @@ class Granatum:
   def export_statically(self, data, extract_from):
     with open(path.join(self.exports_dir, extract_from), 'w') as f:
       json.dump(data, f)
-
-  def export_statically_raw(self, data, extract_from, kind=None, meta=None, dynamic=True):
-    self.dynamic_exports.append({
-      'extractFrom': extract_from,
-      'kind': kind,
-      'meta': meta,
-    })
-    
-    with open(path.join(self.exports_dir, extract_from), 'w') as f:
-      f.write(data)
+      
 
   def export(self, data, extract_from, kind=None, meta=None, dynamic=True):
     if dynamic:

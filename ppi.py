@@ -53,7 +53,7 @@ class GraphArtist(Artist):
             raise TypeError("expected igraph.Graph, got %r" % type(graph))
 
         self.graph = graph
-        self.palette = palette or ig.palettes["red-green"]
+        self.palette = palette or ig.palettes["rainbow"]
         self.bbox = ig.BoundingBox(bbox)
         self.args = args
         self.kwds = kwds
@@ -237,8 +237,7 @@ def main():
 
     #plot.show()
     
-    #gn.add_current_figure_to_results(description="PPI-plot")
-    gn.export_statically_raw(data=plot, extract_from="PPI-plot")
+    gn.add_current_figure_to_results(description="PPI-plot")
     gn.commit()
 
 # Main body
