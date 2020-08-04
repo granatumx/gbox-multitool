@@ -146,9 +146,9 @@ def main():
     score_max = max(gene_score_dict.values())
     score_scale = mpl.colors.Normalize(vmin=score_min, vmax=score_max)
     # Colors: https://matplotlib.org/users/colormaps.html
-    color_mapper = mpl.cm.ScalarMappable(norm=score_scale, cmap=mpl.cm.Greys) # Grey scale
+    #color_mapper = mpl.cm.ScalarMappable(norm=score_scale, cmap=mpl.cm.Greys) # Grey scale
     # If check for +/-, etc. may go with colors and scaled +/- the highest absolute value
-    # color_mapper = mpl.cm.ScalarMappable(norm=score_scale, cmap=mpl.cm.RdBu) # Red to blue
+    color_mapper = mpl.cm.ScalarMappable(norm=score_scale, cmap=mpl.cm.RdBu) # Red to blue
     print("min: "+str(score_min)) # TEST
     print("max: "+str(score_max)) # TEST
     # Load graph, filtering on input
@@ -230,7 +230,7 @@ def main():
 
     # Create a basic plot
     axes = fig.add_subplot(111)
-    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 150, 150), layout="kk")
+    graph_artist = GraphArtist(g_subgraph_degree_gt_0, (1000, 1000, 150, 150), layout=kk_layout)
     graph_artist.set_zorder(float('inf'))
     axes.artists.append(graph_artist)
     axes.axis('off')
