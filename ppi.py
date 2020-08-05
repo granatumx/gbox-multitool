@@ -179,8 +179,8 @@ def main():
                 score_B = gene_score_dict[gene_B]
                 color_A = color_mapper.to_rgba(score_A)
                 color_B = color_mapper.to_rgba(score_B)
-                g.add_vertex(gene_A, label=gene_A, color=color_A, label_size=16, label_angle=1.5708, label_dist=1)
-                g.add_vertex(gene_B, label=gene_B, color=color_B, label_size=16, label_angle=1.5708, label_dist=1)
+                g.add_vertex(gene_A, label=gene_A, color=color_A, label_size=14, label_angle=1.5708, label_dist=1)
+                g.add_vertex(gene_B, label=gene_B, color=color_B, label_size=14, label_angle=1.5708, label_dist=1)
                 g.add_edge(gene_A, gene_B)
     print(g) # TEST
     # Subset if want to load entire graph then subset
